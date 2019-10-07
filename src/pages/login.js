@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import api from '../services/api';
 // import { Authenticator } from "aws-amplify-react-native";
 import {
     View,
@@ -9,6 +10,7 @@ import {
     TextInput,
     ImageBackground
 } from "react-native";
+import { thisTypeAnnotation } from "@babel/types";
 
 
 export default class Login extends Component {
@@ -16,20 +18,23 @@ export default class Login extends Component {
         super(props);
         this.state = { login: '' };
         this.state = { senha: '' };
-        this.state = {
-            someData: null,
-            otherData: null
-        }
+
     }
     componentDidMount = () => {
-        this.setState({
-            someData: "some data",
-            otherData: "other data"
+        this.consultaDados();
+    }
+
+    consultaDados = async () => {
+        const response = await api.get("/dados");
+        const dados = response.data;
+
+        dados.map((lista) => {
+            if(lista.cpf === this.state.login && lista.senha === this.state.senha) {
+                this.props.navigation.navigate('Menu');            }
+            
         });
     }
-    // static navigationOptions = {
-    //     title: "SysEMMApp"
-    // };
+
     render() {
         return (
 
@@ -78,17 +83,8 @@ export default class Login extends Component {
                     color="#3bd1df"
                     alignItems="center"
                     justifyContent="center"
-
-                    // onPress={this._authunticate}
-                    onPress={() => this.props.navigation.navigate('Menu')}
+                    onPress={this.consultaDados}
                 />
-              
-                {/* <Authenticator authData={'username'} authState="signIn">
-                    <AppContainer screenProps={{
-                        someData: this.state.someData,
-                        otherData: this.state.otherData
-                    }} />
-                </Authenticator> */}
             </ImageBackground>
         );
     }
@@ -96,12 +92,10 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        //flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
 
-        // backgroundColor: '#ecf0f1',
     },
     logo: {
         width: 150,
@@ -119,36 +113,7 @@ const styles = StyleSheet.create({
         margin: 15,
         width: 200,
         height: 50,
-        //   borderBottomColor: "#d2dde8",
         color: "rgba(131,157,182,.7)",
-        //borderBottomWidth: 1,
         fontSize: 17
     },
-
-    // login: {
-    //     marginTop: 40,
-    //     textAlign: 'center',
-    //     fontSize: 20
-    // },
-    // senha: {
-    //     marginTop: 20,
-    //     textAlign: 'center',
-    //     fontSize: 20
-    // },
-    // botaoLogin: {
-    //     backgroundColor: '#ff8c1a',
-    //     marginEnd: 80,
-    //     marginStart: 80,
-    //     // color: '#DA552F',
-    //     // backgroundColor: "#DA552F"
-    //     marginTop: 80,
-
-    // },
-    // textColor: {
-    //     color: '#FFF',
-    //     textAlign: 'center',
-    //     fontSize: 25,
-    //     // borderRadius: 30,
-
-    // }
 });
