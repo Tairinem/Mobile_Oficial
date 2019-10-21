@@ -31,7 +31,7 @@ export default class Login extends Component {
   render() {
     return (
       <ImageBackground
-        source={require('../image/fundo.png')}
+        source={require('../image/Laranja2.jpg')}
         style={{
           flex: 1,
           width: '100%',
@@ -41,8 +41,10 @@ export default class Login extends Component {
         <Image
           style={styles.logo}
           source={require('../image/Logo_SysEMM.jpg')}
+          width= {218}
+          height= {134}
         />
-        <Text style={styles.loginTitle}>Sistema de Gerenciamento Escolar.</Text>
+        <Text style={styles.loginTitle}>Sistema de Gerenciamento Escolar</Text>
 
         <View style={styles.container}>
           <TextInput
@@ -68,6 +70,7 @@ export default class Login extends Component {
             placeholderTextColor="rgba(131,157,182,.7)"
           />
         </View>
+
         <Button
           title="Acessar"
           width="100%"
@@ -87,6 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
+    
   },
   logo: {
     width: 150,
@@ -96,9 +100,10 @@ const styles = StyleSheet.create({
   loginTitle: {
     marginBottom: 50,
     width: 270,
-    fontSize: 16,
+    fontSize: 17,
     color: 'black',
-    textAlign: 'left',
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   input: {
     margin: 15,

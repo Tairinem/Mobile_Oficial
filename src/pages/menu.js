@@ -1,21 +1,80 @@
-import React, {Component} from 'react';
-import {View, Text, Button, StyleSheet} from 'react-native';
+/* eslint-disable comma-dangle */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable prettier/prettier */
 
-export default class Menu extends Component {
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Button,
+  ImageBackground,
+  TouchableHighlight
+} from 'react-native';
+
+
+export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <Text>Menu</Text>
-        <Button
-          style={styles.botao}
-          title="Nome do Aluno"
-          onPress={() => this.props.navigation.navigate('MenuAluno')}
+      // eslint-disable-next-line react/jsx-no-undef
+      <ImageBackground      
+        source={require('../image/Laranja2.jpg')}
+        style={{
+          flex: 1,
+          width: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+      <React.Fragment>
+        <View style={styles.container}>        
+         <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuAluno')}>         
+          <Image         
+            resizeMode="contain"
+            style={styles.image}            
+            source={require('../image/AvatarMenino.png')}
+                         
+          />
+           </TouchableHighlight>
+          <Text style={styles.nameText}>Mauro Filho</Text>
+     </View>
+
+      <View style={styles.container}>
+      <TouchableHighlight onPress={() => this.props.navigation.navigate('MenuAluno')}> 
+        <Image
+          resizeMode="contain"
+          style={styles.image}
+          source={require('../image/AvatarMenina.png')}
         />
-      </View>
+        </TouchableHighlight>
+        <Text style={styles.nameText}>Ana Paula</Text>
+
+      </View>      
+    </React.Fragment>
+
+    </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  botao: {},
+  container: {
+   // backgroundColor: '#ffa262',
+    flex: 1,
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 125,
+    borderWidth: 5,
+    borderColor: '#4cfcf3',
+    marginBottom: 20,
+  },
+  nameText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
 });
