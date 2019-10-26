@@ -16,7 +16,8 @@
     "react-native-gesture-handler": "^1.4.1",
     "react-native-textinput-effects": "^0.5.1",
     "react-native-vector-icons": "^6.6.0",
-    "react-navigation": "2.18.3"
+    "react-navigation": "2.18.3",
+    "react-navigation-stack": "^1.10.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

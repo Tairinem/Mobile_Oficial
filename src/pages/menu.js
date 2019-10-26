@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 /* eslint-disable comma-dangle */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
@@ -15,11 +16,19 @@ import {
 
 
 export default class App extends React.Component {
+  static navigationOptions = { title: 'Menu Aluno', 
+  headerStyle: {backgroundColor: 'orange'}, 
+  headerTintColor: 'white', 
+  headerTitleStyle: {textAlign: 'center', fontWeight: 'bold', 
+  alignSelf: 'center', width: '75%' }, 
+  backTitle: ''};
+
   render() {
     return (
       // eslint-disable-next-line react/jsx-no-undef
-      <ImageBackground      
-        source={require('../image/Laranja2.jpg')}
+      <ImageBackground 
+           
+        source={require('../image/fundo.png')}
         style={{
           flex: 1,
           width: '100%',

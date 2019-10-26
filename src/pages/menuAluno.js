@@ -3,19 +3,25 @@ import {View, Text, Button} from 'react-native';
 import {Icon} from 'react-native-vector-icons';
 
 export default class MenuAluno extends Component {
+
+  static navigationOptions = { title: 'Menu', 
+  headerStyle: {backgroundColor: 'orange'}, 
+  headerTintColor: 'white', 
+  headerTitleStyle: {textAlign: 'center', fontWeight: 'bold', 
+  alignSelf: 'center', width: '75%' }, 
+  backTitle: ''};
   render() {
     return (
       <View>
-        <Text>Menu</Text>
         <Button
           title="Frequências e Notas"
           type="outline"
           onPress={() => this.props.navigation.navigate('Dados')}
         />
         <Button
-          title="Notificações"
+          title="Avisos"
           type="outline"
-          onPress={() => this.props.navigation.navigate('Notificacoes')}
+          onPress={() => this.props.navigation.navigate('Avisos')}
         />
         <Button
           title="outros"

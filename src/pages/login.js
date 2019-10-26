@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
 
@@ -12,6 +14,15 @@ import {
 } from 'react-native';
 
 export default class Login extends Component {
+  
+  static navigationOptions = { title: 'Login', 
+  headerStyle: {backgroundColor: 'orange'}, 
+  headerTintColor: 'white', 
+  headerTitleStyle: {textAlign: 'center', fontWeight: 'bold', 
+  alignSelf: 'center', width: '90%' }, 
+  backTitle: ''};
+  
+
   constructor(props) {
     super(props);
     this.state = {login: ''};
@@ -31,7 +42,7 @@ export default class Login extends Component {
   render() {
     return (
       <ImageBackground
-        source={require('../image/Laranja2.jpg')}
+        source={require('../image/fundo.png')}
         style={{
           flex: 1,
           width: '100%',
@@ -41,8 +52,8 @@ export default class Login extends Component {
         <Image
           style={styles.logo}
           source={require('../image/Logo_SysEMM.jpg')}
-          width= {218}
-          height= {134}
+          width={218}
+          height={134}
         />
         <Text style={styles.loginTitle}>Sistema de Gerenciamento Escolar</Text>
 
@@ -90,7 +101,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    
   },
   logo: {
     width: 150,
@@ -101,7 +111,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     width: 270,
     fontSize: 17,
-    color: 'black',
+    color: '#FFA500',
     textAlign: 'center',
     fontWeight: 'bold',
   },
