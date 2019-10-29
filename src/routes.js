@@ -1,5 +1,7 @@
+/* eslint-disable handle-callback-err */
 /* eslint-disable prettier/prettier */
 import {createStackNavigator} from 'react-navigation';
+
 
 import Login from './pages/login';
 import Menu from './pages/menu';
@@ -16,3 +18,5 @@ export default createStackNavigator({
 
 // eslint-disable-next-line eol-last
 });
+
+

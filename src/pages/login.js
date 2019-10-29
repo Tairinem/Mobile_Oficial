@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-undef */
 /* eslint-disable react-native/no-inline-styles */
+console.disableYellowBox = true;
 import React, {Component} from 'react';
 
 import {
