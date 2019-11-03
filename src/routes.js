@@ -4,7 +4,7 @@ import {createStackNavigator} from 'react-navigation';
 
 
 import Login from './pages/login';
-import Menu from './pages/menu';
+import Menu from './pages/avisos';
 import MenuAluno from './pages/menuAluno';
 import Dados from './pages/dados';
 import Avisos from './pages/avisos';

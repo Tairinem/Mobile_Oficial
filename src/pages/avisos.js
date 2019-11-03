@@ -1,13 +1,25 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable no-floating-decimal */
+/* eslint-disable comma-dangle */
+/* eslint-disable no-undef */
+/* eslint-disable no-unreachable */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable prettier/prettier */
-
-import React, { Component } from "react";
+//console.disableYellowBox = false;  
+import React, { Component } from 'react';
 import { 
     View, 
-    Text,
-    Button
-       
-} from "react-native";
-
+    Text,    
+    ListView,
+    Action_click,    
+    StyleSheet,
+    ActivityIndicator,
+    FlatList ,
+    TouchableOpacity, 
+    Alert,
+    ShowText 
+} from 'react-native';
 
 export default class avisos extends Component{
 
@@ -17,25 +29,26 @@ export default class avisos extends Component{
     headerTitleStyle: {textAlign: 'center', fontWeight: 'bold', 
     alignSelf: 'center', width: '75%' }, 
     backTitle: ''};
+    
 
-    teste(){
-        fetch('http://192.168.56.1:8000/notificacoes')
-          .then(response => response.json())
-          .then(notificacoes => console.warn(notificacoes))
-          console.disableYellowBox = false;
-      
+    handlePress = async () => {
+        fetch('http://192.168.56.1:8000/notificacoes')      
+          .then((response) => response.json())
+          .then((responseJson) => {Alert.alert('Descrição', responseJson[0].Descricao);
+
+          }
+        )
+          .catch((error) => {
+            console.error(error);
+          });
       }
-    render() {
+        render(){
         return(
-            <View>
-            <Button
-             onPress={() => {this.teste()
-             ;
-  }}
-            title="Press Me"
-            />
-            </View>
-     )
-    }
-
-}
+         <View style={{padding: 10, alignItems: 'center',backgroundColor:'#DDDDDD'}}>
+          <TouchableOpacity onPress={this.handlePress.bind(this)}>
+           <Text style={{padding: 10, alignItems:'center', color: 'orange'}}> Dias das Mães </Text>
+          </TouchableOpacity>
+      </View> 
+        );
+      }
+      }

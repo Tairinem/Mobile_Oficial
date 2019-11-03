@@ -24,7 +24,7 @@ app.get('/notificacoes', function (req, res) {
     // Executando a query MySQL (selecionar todos os dados da tabela usuário).
     connection.query('SELECT * FROM notificacoes', function (error, results, fields) {
       // Caso ocorra algum erro, não irá executar corretamente.if (error) throw error;
-      
+      if(error) throw error;
       // Pegando a 'resposta' do servidor pra nossa requisição. Ou seja, aqui ele vai mandar nossos dados.
       res.send(results)
     });
