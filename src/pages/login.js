@@ -27,6 +27,15 @@ export default class Login extends Component {
         // this.consultaDados();
     }
 
+    doClear() {
+        let login = this.refs["login"];
+        let senha = this.refs["senha"];
+     
+        senha.clear();
+        login.clear();
+        
+      }
+
     consultaDados = async () => {
         var msgerro = '';
         const response = await api.get("/dados");
@@ -35,16 +44,18 @@ export default class Login extends Component {
         dados.map((lista) => {
             if (lista.cpf === this.state.login && lista.senha === this.state.senha) {
                 msgerro = 'Carregando!';
-                this.props.navigation.navigate('Menu');
+                this.props.navigation.navigate('MenuAluno');
+                // Alterar depois
+                // this.props.navigation.navigate('Menu');              
 
             } else if (lista.cpf !== this.state.login || lista.senha !== this.state.senha ||
                 this.state.login === undefined || this.state.senha === undefined) {
                 msgerro = ('Dados digitados não conferem!');
+                this.doClear();
+
             } 
-
-            this.setState({ mensagem: msgerro, colorAlert: '#900' }).reset();
-
-
+            
+            this.setState({ mensagem: msgerro, colorAlert: '#900' }).reset();          
         });
     }
 
@@ -66,10 +77,10 @@ export default class Login extends Component {
                         justifyContent: "center"
                     }}
                 >
-                    <Image style={styles.logo} source={require("../image/Logo_SysEMM.jpg")} />
-                    <Text style={styles.loginTitle}>
+            <Image style={styles.logo} source={require("../image/Logo_SysEMM.jpg")} />
+            <Text style={styles.loginTitle}>
                         Sistema de Gerenciamento Escolar.
-             </Text>
+            </Text>
 
                     <View style={styles.container}>
                         <TextInput
@@ -82,6 +93,7 @@ export default class Login extends Component {
                             underlineColorAndroid="#ff8c1a"
                             autoCapitalize="none"
                             placeholderTextColor="rgba(131,157,182,.7)"
+                            ref="login"
                         />
                     </View>
 
@@ -97,6 +109,7 @@ export default class Login extends Component {
                             underlineColorAndroid="#ff8c1a"
                             autoCapitalize="none"
                             placeholderTextColor="rgba(131,157,182,.7)"
+                            ref="senha"
                         />
                     </View>
                     <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#900' }}>
@@ -145,3 +158,5 @@ const styles = StyleSheet.create({
         fontSize: 17
     },
 });
+
+//TODO: colocar validações ao sair e colocar que os campos de logine senha não aceite letras
