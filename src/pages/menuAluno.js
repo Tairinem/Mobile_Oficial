@@ -44,11 +44,16 @@ export default class MenuAluno extends Component {
             <View>
 
                 <TouchableOpacity onPress={() => this.onDemoButtonPressed()}>
+
                     <Image
                         style={styles.imagemSair}
                         source={require("../image/sair.png")}
                     />
                 </TouchableOpacity>
+                    <Text style={{ fontSize: 30, fontWeight: 'bold', color: '#ff8c1a', marginLeft: 120 }}>
+                        SysEMM
+                    </Text>
+                    <Text></Text>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Dados')}>
                     <Image
                         style={styles.imageDados}

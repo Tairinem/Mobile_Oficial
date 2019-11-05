@@ -13,7 +13,7 @@ import {
     KeyboardAvoidingView
 } from "react-native";
 
-
+console.disableYellowBox = true;
 // yarn cache clean
 export default class Login extends Component {
     constructor(props) {
@@ -45,6 +45,7 @@ export default class Login extends Component {
             if (lista.cpf === this.state.login && lista.senha === this.state.senha) {
                 msgerro = 'Carregando!';
                 this.props.navigation.navigate('MenuAluno');
+                this.doClear();
                 // Alterar depois
                 // this.props.navigation.navigate('Menu');              
 
